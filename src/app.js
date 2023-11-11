@@ -17,7 +17,8 @@ app.get("/api/v1/names/:id", (req,res)=>{
    const response = productNames.find((item)=>{
         return item.id == id
     })
-    if(!response){
+    
+    if(!response || response == null){
         return res.status(404).json({
             "status": "failed", 
             "message": "Not found!"
@@ -27,9 +28,7 @@ app.get("/api/v1/names/:id", (req,res)=>{
     res.status(200).json({
         "status": "success", 
         "message": "Product name fetched successfully",
-        "data": { 
-             "name":response
-         } 
+        "data": response
     
     })
 })
