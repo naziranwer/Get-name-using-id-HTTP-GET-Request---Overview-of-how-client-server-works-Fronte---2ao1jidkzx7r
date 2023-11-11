@@ -23,11 +23,12 @@ app.get("/api/v1/names/:id", (req,res)=>{
             "message": "Not found!"
         })
     }
+
     res.status(200).json({
         "status": "success", 
         "message": "Product name fetched successfully",
         "data": { 
-             "name":respose
+             "name":response
          } 
     
     })
